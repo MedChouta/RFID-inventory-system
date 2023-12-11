@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory system</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+<body class="container">
+
+    {% if login == True %}
+
+    <div class="form-container">
+        <div class="form">
+        <h2>Sign in</h2>
+        <form method="post" action="/">
+            <div class="input-field">
+              <input name="email" id="email" type="text" class="validate">
+              <label for="email">Email</label>
+            </div>
+            <div class="input-field">
+              <input name="password" id="password" type="password" class="validate">
+              <label for="password">Password</label>
+          </div>
+            <button type="submit" class="waves-effect waves-light btn-small">Sign in</button>
+          </form>
+
+          </div>
+    </div>
+
+    <div class="form-container">
+      <div class="form">
+      <h2>Sign up</h2>
+      <form method="post" action="/adduser">
+        <div class="input-field">
+          <input name="firstname" id="firstname" type="text">
+          <label for="firstname">First Name</label>
+        </div>
+        <div class="input-field">
+          <input name="lastname" id="lastname" type="text">
+          <label for="lastname">Last Name</label>
+        </div>
+          <div class="input-field">
+            <input name="email" id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field">
+            <input name="password" id="password" type="password" class="validate">
+            <label for="password">Password</label>
+        </div>
+          <button type="submit" class="waves-effect waves-light btn-small">Sign up</button>
+        </form>
+
+        </div>
+  </div>
+
+    {% endif %}
+
+
+    {% if login == False %}
+    <div class="view-container">
+        
+      <table class="striped">
+        <thead>
+          <tr>
+              <th>Tag ID</th>
+              <th>Name<th>
+              <th>Location</th>
+              <th>date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for item in items %}
+          <tr>
+            <td>{{ item["item_id"]}}</td>
+            <td>{{ item["name"]}}</td>
+            <td>{{ item["location"]}}</td>
+            <td>{{ item["date"]}} </td>
+            <td>
+              <a href="del/{{item['id']}}" class="waves-effect waves-light btn-small">Delete</a>
+              </td>
+          </tr>
+            {% endfor %}
+
+        </tbody>
+      </table>
+      <a href="add" class="waves-effect waves-light btn-small">Add</a>
+
+    </div>
+    {% endif %}
+
+</body>
+</html>

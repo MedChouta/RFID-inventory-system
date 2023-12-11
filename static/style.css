@@ -1,0 +1,21 @@
+.form-container{
+    padding-top: 15%;
+    justify-content: center;
+    display: flex;
+}
+
+.form{
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 3em;
+}
+
+.input-field{
+    width: 400px;
+}

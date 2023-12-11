@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory system</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+<body class="container">
+
+    <div class="form-container">
+        <div class="form">
+        <h2>Add Item</h2>
+        <form method="post" action="/add">
+            <div class="input-field">
+              <input name="name" id="name" type="text" class="validate">
+              <label for="name">Item Name</label>
+            </div>
+            <div class="input-field">
+              <input name="location" id="location" type="text" class="validate">
+              <label for="location">Location</label>
+          </div><br>
+            <button type="submit" class="waves-effect waves-light btn-small">Scan</button>
+          </form>
+
+          </div>
+    </div>
+
+</body>
+</html>
